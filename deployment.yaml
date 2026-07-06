@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-demand-forecasting
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retail-demand-forecasting
+  template:
+    metadata:
+      labels:
+        app: retail-demand-forecasting
+    spec:
+      containers:
+      - name: retail-demand-forecasting
+        image: retail-demand-forecasting:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8888
